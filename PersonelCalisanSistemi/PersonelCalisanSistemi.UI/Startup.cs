@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using PersonelCalisanSistemleri.Data.DataContext;
 
 namespace PersonelCalisanSistemi.UI
 {
@@ -24,7 +28,10 @@ namespace PersonelCalisanSistemi.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
+            services.AddRazorPages();
+            services.AddDbContext<PersonelCalisanSistemiContext>(Options =>
+                Options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
