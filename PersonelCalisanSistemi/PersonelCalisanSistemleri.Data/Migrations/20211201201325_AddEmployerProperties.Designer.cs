@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonelCalisanSistemleri.Data.DataContext;
 
 namespace PersonelCalisanSistemleri.Data.Migrations
 {
     [DbContext(typeof(PersonelCalisanSistemiContext))]
-    partial class PersonelCalisanSistemiContextModelSnapshot : ModelSnapshot
+    [Migration("20211201201325_AddEmployerProperties")]
+    partial class AddEmployerProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,6 +232,9 @@ namespace PersonelCalisanSistemleri.Data.Migrations
 
                     b.Property<DateTime>("DogumTarihi")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("KullaniciId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Soyadi")
                         .HasColumnType("nvarchar(max)");
