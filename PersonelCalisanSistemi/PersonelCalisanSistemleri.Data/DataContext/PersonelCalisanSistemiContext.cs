@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PersonelCalisanSistemleri.Data.DataModel;
 
 namespace PersonelCalisanSistemleri.Data.DataContext
 {
@@ -12,5 +13,7 @@ namespace PersonelCalisanSistemleri.Data.DataContext
         {
             
         }
+
+        public DbSet<Employe> Employe { get; set; }
     }
 }
